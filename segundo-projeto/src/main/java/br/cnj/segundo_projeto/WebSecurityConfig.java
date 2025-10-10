@@ -26,11 +26,12 @@ public class WebSecurityConfig {
         return http.authorizeHttpRequests(request -> request
             .requestMatchers(new AntPathRequestMatcher("/api/caixa/**"))
             .hasRole("USER"))
-            .authorizeHttpRequests(request -> request.requestMatchers(new AntPathRequestMatcher("/api/documento/**"))
+            .authorizeHttpRequests(request -> request.requestMatchers(new AntPathRequestMatcher("/api/arquivo/**"))
             .hasRole("ADMIN")
             .anyRequest()
             .authenticated())
         .httpBasic(Customizer.withDefaults())
+        .csrf().disable()
         .build();
     }
 }
