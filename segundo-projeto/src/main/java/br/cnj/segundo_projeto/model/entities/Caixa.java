@@ -1,10 +1,24 @@
 package br.cnj.segundo_projeto.model.entities;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "caixa")
 public class Caixa {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id_caixa;
+    @Column(name = "nome")
     private String nm_caixa;
+    @Column(name = "descricao")
     private String ds_caixa;
+    @Column(name = "il_ativo")
     private Boolean in_sistema;
 
     public Long getId_caixa() {
